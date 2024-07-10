@@ -3,7 +3,7 @@ ul {
     background-color: skyblue;
     color: white;
     list-style-type: none;
-
+    margin: 0px;
 }
 
 ul li {
