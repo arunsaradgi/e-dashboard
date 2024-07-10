@@ -1,17 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.css";
 const SignUp = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const SignUpSubmit = () => {
+    console.warn(name, email, password);
+  };
   return (
     <div className="SignUp">
       <h1>Registration</h1>
-      <input className="inputBox" type="text" placeholder="Enter name" />
-      <input className="inputBox" type="email" placeholder="Enter Email" />
+      <input
+        className="inputBox"
+        type="text"
+        placeholder="Enter name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        className="inputBox"
+        type="email"
+        placeholder="Enter Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
       <input
         className="inputBox"
         type="password"
         placeholder="Enter Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
-      <button className="SignUpButton">Sign Up</button>
+      <button className="SignUpButton" onClick={SignUpSubmit}>
+        Sign Up
+      </button>
     </div>
   );
 };
