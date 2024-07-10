@@ -1,0 +1,17 @@
+ul {
+    display: flex;
+    background-color: skyblue;
+    color: white;
+    list-style-type: none;
+
+}
+
+ul li {
+    color: white;
+    padding: 30px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: blue;
+}
