@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,13 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  useEffect(()=>{
+    const auth=localStorage.getItem('user');
+    if(auth){
+      navigate('/')
+    }
+  },[])
+
   const SignUpSubmit = () => {
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/register`, {
@@ -16,6 +23,7 @@ const SignUp = () => {
         password,
       })
       .then((res) => {
+        localStorage.setItem("user", JSON.stringify(res.data));
         navigate("/");
       })
       .catch((err) => console.log(err));
