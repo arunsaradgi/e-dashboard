@@ -9,8 +9,6 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const SignUpSubmit = () => {
-    console.warn(name, email, password);
-    console.log(process.env.REACT_APP_BASE_URL);
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/register`, {
         name,
@@ -18,7 +16,6 @@ const SignUp = () => {
         password,
       })
       .then((res) => {
-        console.log(res);
         navigate("/");
       })
       .catch((err) => console.log(err));
