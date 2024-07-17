@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../Navbar/Navbar.css";
+import styles from "./styles.css";
+
 const Navbar = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
 
-  const logout =()=>{
-    localStorage.clear()
-    navigate('/signup');
-  }
+  const logout = () => {
+    localStorage.clear();
+    navigate("/signup");
+  };
 
   return (
     <>
@@ -24,7 +25,9 @@ const Navbar = () => {
         </li>
         {user ? (
           <li>
-            <Link onClick={logout} to={"/signup"}>Logout</Link>
+            <Link onClick={logout} to={"/signup"}>
+              Logout
+            </Link>
           </li>
         ) : (
           <li>

@@ -4,10 +4,10 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Product from './pages/Product';
 import Profile from './pages/Profile';
-import Footer from './components/Footer/Footer';
-import Navbar from './components/Navbar/Navbar';
 import SignUp from './components/SignUp';
 import PrivateComponent from './components/PrivateComponent';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
