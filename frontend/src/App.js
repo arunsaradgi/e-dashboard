@@ -8,6 +8,7 @@ import SignUp from './components/SignUp';
 import PrivateComponent from './components/PrivateComponent';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/profile' element={<Profile />} />
         </Route>
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
       <Footer />
     </div>

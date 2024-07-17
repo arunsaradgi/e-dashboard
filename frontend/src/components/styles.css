@@ -6,14 +6,25 @@
     place-items: center;
 }
 
+.login {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    place-items: center;
+
+}
+
 .inputBox {
     border-radius: 20px;
     padding: 10px;
 }
 
-.SignUpButton {
+.Button {
     border-radius: 10px;
     background-color: #f70000;
+    width: 10%;
+    height: 30px;
 }
 
 .footer {
