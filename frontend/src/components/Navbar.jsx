@@ -4,7 +4,7 @@ import styles from "./styles.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
+  const auth = JSON.parse(localStorage.getItem("user"));
 
   const logout = () => {
     localStorage.clear();
@@ -23,20 +23,20 @@ const Navbar = () => {
         <li>
           <Link to={"/profile"}>profile</Link>
         </li>
-        {user ? (
+        {auth ? (
           <li>
-            <Link onClick={logout} to={"/signup"}>
-              Logout
-            </Link>
+            <Link onClick={logout}>Logout</Link>
           </li>
         ) : (
-          <li>
-            <Link to={"/signup"}>SignUp</Link>
-          </li>
+          <>
+            <li>
+              <Link to={"/signup"}>SignUp</Link>
+            </li>
+            <li>
+              <Link to={"/login"}>Login</Link>
+            </li>
+          </>
         )}
-        <li>
-          <Link to={"/login"}>Login</Link>
-        </li>
       </ul>
     </>
   );

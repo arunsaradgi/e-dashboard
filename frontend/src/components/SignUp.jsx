@@ -8,6 +8,12 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const auth = localStorage.getItem("user");
+    if (auth) {
+      navigate("/");
+    }
+  }, []);
   const SignUpSubmit = () => {
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/register`, {
