@@ -15,20 +15,22 @@ const Login = () => {
     }
   }, []);
   const loginSubmit = () => {
-    console.warn(email, password);
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/login`, { email, password })
       .then((res) => {
-        // console.log(res.data);
-        localStorage.setItem("user", JSON.stringify(res.data));
-        navigate("/");
+        if (res.data._id) {
+          localStorage.setItem("user", JSON.stringify(res.data._id));
+          navigate("/");
+        } else {
+          alert(res.data + ". Please enter the correct credentials");
+        }
       })
       .catch((err) => {
         console.log(err);
       });
   };
   return (
-    <div className="login">
+    <div className="SignUp">
       <h1>Login</h1>
       <input
         type="email"

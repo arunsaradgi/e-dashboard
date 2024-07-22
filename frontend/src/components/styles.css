@@ -6,15 +6,6 @@
     place-items: center;
 }
 
-.login {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-    place-items: center;
-
-}
-
 .inputBox {
     border-radius: 20px;
     padding: 10px;
@@ -66,4 +57,12 @@ ul li a {
     width: 50px;
     float: left;
     margin: 15px;
+}
+
+.error {
+    color: red;
+    font-family: cursive;
+    font-size: medium;
+    margin-top: -15px;
+    margin-left: 5px;
 }

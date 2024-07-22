@@ -4,7 +4,7 @@ import styles from "./styles.css";
 import image from "../../src/logo.svg";
 const Navbar = () => {
   const navigate = useNavigate();
-  const auth = JSON.parse(localStorage.getItem("user"));
+  const auth = localStorage.getItem("user");
 
   const logout = () => {
     localStorage.clear();
