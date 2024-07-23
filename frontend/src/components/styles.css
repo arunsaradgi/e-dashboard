@@ -66,3 +66,13 @@ ul li a {
     margin-top: -15px;
     margin-left: 5px;
 }
+
+.product-table {
+    border: 1px solid black;
+    margin: auto;
+}
+
+.product-row th,
+td {
+    border: 1px solid red;
+}
