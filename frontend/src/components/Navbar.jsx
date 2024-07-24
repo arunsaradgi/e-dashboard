@@ -23,9 +23,6 @@ const Navbar = () => {
             <Link to={"/product"}>product</Link>
           </li>
           <li>
-            <Link to={"/profile"}>profile</Link>
-          </li>
-          <li>
             <Link to={"/login"} onClick={logout}>
               Logout {auth.name}
             </Link>

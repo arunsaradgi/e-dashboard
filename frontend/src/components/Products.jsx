@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 const Products = () => {
     const [products, setProducts] = useState([])
-
+    const navigate = useNavigate()
     useEffect(() => {
         getProducts()
 
@@ -24,6 +25,8 @@ const Products = () => {
         }).catch(err => console.log(err))
     }
 
+
+
     // console.warn(products)
     return <div>
         <h1>Products</h1>
@@ -34,6 +37,7 @@ const Products = () => {
                     <th>Company</th>
                     <th>Price</th>
                     <th>Category</th>
+                    <th>Operation</th>
                     <th>Operation</th>
                 </tr>
             </thead>
@@ -47,6 +51,9 @@ const Products = () => {
                         <td>{item.category}</td>
                         <td>
                             <button onClick={() => deleteProduct(item)}>Delete</button>
+                        </td>
+                        <td>
+                            <button onClick={() => navigate(`/update/${item._id}`)} >Update</button>
                         </td>
                     </tr>
                     )

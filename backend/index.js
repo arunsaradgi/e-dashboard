@@ -52,4 +52,14 @@ app.delete('/delete-product/:id', async (req, res) => {
     res.send(deleted)
 })
 
+app.get('/product/:id', async (req, res) => {
+    let product = await Product.findById({ _id: req.params.id });
+    res.send(product)
+})
+
+app.put('/product/:id', async (req, res) => {
+    let product = await Product.updateOne({ _id: req.params.id }, { $set: req.body })
+
+    res.send(product)
+})
 app.listen(5000)

@@ -1,9 +1,10 @@
 import React from "react";
+import UpdateProduct from "../components/UpdateProduct";
 
 const Profile = () => {
   return (
     <div>
-      <h1>this is profile page</h1>
+      <UpdateProduct />
     </div>
   );
 };
