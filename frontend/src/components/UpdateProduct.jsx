@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const UpdateProduct = () => {
     const { id } = useParams();
@@ -8,6 +8,7 @@ const UpdateProduct = () => {
     const [price, setPrice] = useState("");
     const [category, setCategory] = useState("");
     const [company, setCompany] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BASE_URL}/product/${id}`).then((res) => {
@@ -17,14 +18,18 @@ const UpdateProduct = () => {
             setPrice(product.price)
             setCategory(product.category)
             setCompany(product.company);
-
+            
         }).catch((err) => {
             console.log(err)
         })
     }, [])
-    const updateProduct = () => {
+
+    const update = () => {
         axios.put(`${process.env.REACT_APP_BASE_URL}/product/${id}`, { name, price, category, company }).then((res) => {
             console.log(res)
+            if (res) {
+                navigate('/');
+            }
         }).catch((err) => {
             console.log(err)
         })
@@ -66,7 +71,7 @@ const UpdateProduct = () => {
                 value={company}
             />
 
-            <button className="Button" onClick={updateProduct}>
+            <button className="Button" onClick={update}>
                 Update product
             </button>
         </div>
