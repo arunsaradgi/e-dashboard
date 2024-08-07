@@ -4,13 +4,12 @@ import { useNavigate } from 'react-router-dom'
 const Products = () => {
     const [products, setProducts] = useState([])
     const navigate = useNavigate()
+
     useEffect(() => {
         getProducts()
-
     }, [])
 
     const getProducts = () => {
-
         axios.get(`${process.env.REACT_APP_BASE_URL}/products`).then((res) => {
             return setProducts(res.data)
         }).catch((err) => {
@@ -25,12 +24,22 @@ const Products = () => {
         }).catch(err => console.log(err))
     }
 
+    const search = (event) => {
+        let key = event.target.value;
+        if (key) {
+            axios.get(`${process.env.REACT_APP_BASE_URL}/search/${key}`).then((res) => {
+                setProducts(res.data)
+            }).catch(err => console.log(err))
+        } else {
+            getProducts()
+        }
+    }
 
 
-    // console.warn(products)
     return <div>
         <h1>Products</h1>
-        <table className='product-table'>
+        <input type="text" placeholder='Search Product' className='search_box' onChange={search} />
+        {products.length > 0 ? <table className='product-table'>
             <thead>
                 <tr className='product-row'>
                     <th>Product</th>
@@ -59,7 +68,7 @@ const Products = () => {
                     )
                 }
             </tbody>
-        </table>
+        </table> : <h1>No products found</h1>}
     </div>
 }
 
