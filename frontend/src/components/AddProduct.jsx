@@ -7,6 +7,7 @@ const AddProduct = () => {
   const [category, setCategory] = useState("");
   const [company, setCompany] = useState("");
   const [error, setError] = useState(false);
+  
   const addProduct = () => {
     if (name && price && category && company) {
       axios

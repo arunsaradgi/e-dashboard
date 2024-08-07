@@ -14,6 +14,7 @@ const SignUp = () => {
       navigate("/");
     }
   }, []);
+  
   const SignUpSubmit = () => {
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/register`, {
@@ -27,6 +28,8 @@ const SignUp = () => {
       })
       .catch((err) => console.log(err));
   };
+
+
   return (
     <div className="SignUp">
       <h1>Registration</h1>

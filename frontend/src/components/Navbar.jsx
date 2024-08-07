@@ -4,12 +4,13 @@ import styles from "./styles.css";
 import image from "../../src/logo.svg";
 const Navbar = () => {
   const navigate = useNavigate();
-  const auth = localStorage.getItem("user");
+  const auth = JSON.parse(localStorage.getItem("user"));
 
   const logout = () => {
     localStorage.clear();
     navigate("/signup");
   };
+
 
   return (
     <div className="navbar">
@@ -20,7 +21,7 @@ const Navbar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <Link to={"/product"}>product</Link>
+            <Link to={"/product"}>add product</Link>
           </li>
           <li>
             <Link to={"/login"} onClick={logout}>

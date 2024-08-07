@@ -14,12 +14,13 @@ const Login = () => {
       navigate("/");
     }
   }, []);
+
   const loginSubmit = () => {
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/login`, { email, password })
       .then((res) => {
         if (res.data._id) {
-          localStorage.setItem("user", JSON.stringify(res.data._id));
+          localStorage.setItem("user", JSON.stringify(res.data));
           navigate("/");
         } else {
           alert(res.data + ". Please enter the correct credentials");
@@ -29,6 +30,8 @@ const Login = () => {
         console.log(err);
       });
   };
+
+
   return (
     <div className="SignUp">
       <h1>Login</h1>
