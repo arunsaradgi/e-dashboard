@@ -23,7 +23,8 @@ const SignUp = () => {
         password,
       })
       .then((res) => {
-        localStorage.setItem("user", JSON.stringify(res.data));
+        localStorage.setItem("user", JSON.stringify(res.data.result));
+        localStorage.setItem("token", JSON.stringify(res.data.auth));
         navigate("/");
       })
       .catch((err) => console.log(err));

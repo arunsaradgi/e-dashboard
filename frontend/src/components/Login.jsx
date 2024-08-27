@@ -19,8 +19,9 @@ const Login = () => {
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/login`, { email, password })
       .then((res) => {
-        if (res.data._id) {
-          localStorage.setItem("user", JSON.stringify(res.data));
+        if (res.data.user._id) {
+          localStorage.setItem("user", JSON.stringify(res.data.user));
+          localStorage.setItem("token", JSON.stringify(res.data.auth));
           navigate("/");
         } else {
           alert(res.data + ". Please enter the correct credentials");

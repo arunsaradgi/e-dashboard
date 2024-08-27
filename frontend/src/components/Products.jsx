@@ -10,7 +10,11 @@ const Products = () => {
     }, [])
 
     const getProducts = () => {
-        axios.get(`${process.env.REACT_APP_BASE_URL}/products`).then((res) => {
+        axios.get(`${process.env.REACT_APP_BASE_URL}/products`,{
+            headers:{
+                authorization:JSON.parse(window.localStorage.getItem('token'))
+            }
+        }).then((res) => {
             return setProducts(res.data)
         }).catch((err) => {
             console.log(err)
